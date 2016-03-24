@@ -1,0 +1,14 @@
+{
+	"name": "alumni-election",
+	"version": "1.0.0",
+	"description": "Package manager for PNCAA Boards Election",
+	"main": "?",
+	"license": "Proprietary",
+	"private": true,
+	"authors": [
+		"Man Math <manmath4@gmail.com>"
+	],
+	"dependencies": {
+		"bootstrap-sass": "~3.3"
+	}
+}

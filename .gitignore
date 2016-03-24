@@ -1,6 +1,25 @@
+# CodeIgniter
+#--------------
 */config/development
 */logs/log-*.php
 !*/logs/index.html
 */cache/*
 !*/cache/index.html
 !*/cache/.htaccess
+
+# System files
+# ---------------
+*.gem
+*~
+.buildpath
+.bundle
+.DS_Store
+.idea
+.project
+.sass-cache
+.settings
+bower_components
+nbproject/
+node_modules
+pkg/*
+cgi-bin/
