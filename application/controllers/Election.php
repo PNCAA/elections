@@ -9,13 +9,18 @@ class Election extends CI_Controller {
 	public $electionRepository;
 
 	/**
+	 * @var CandidateRepository
+	 */
+	public $candidateRepository;
+
+	/**
 	 * @var array
 	 */
 	public $data = array();
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->model(array('ElectionRepository' => 'electionRepository'));
+		$this->load->model(array('ElectionRepository' => 'electionRepository', 'CandidateRepository' => 'candidateRepository'));
 	}
 
 	/**
@@ -28,7 +33,7 @@ class Election extends CI_Controller {
 		$this->data['title'] = 'Election - ' . SITE_TITLE;
 		$this->data['status'] = 'primary';
 		$this->data['headline'] = 'LIST OF CANDIDATES FOR ALUMNI ADDITIONAL BOARD ELECTION';
-		$this->data['candidates'] = $this->electionRepository->findAll();
+		$this->data['candidates'] = $this->candidateRepository->findAll();
 		$this->load->view('index', $this->data);
 	}
 

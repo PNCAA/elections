@@ -37,11 +37,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class="panel-body">
 						<?php
-						if (!$this->uri->segment(2) || $this->uri->segment(2) === 'index') {
+						if ((!$this->uri->segment(2) || $this->uri->segment(2) === 'index') && $this->uri->segment(1) === 'election') {
 							echo form_open_multipart('election/vote', array('class' => 'form-horizontal', 'role' => 'form'));
 							$this->load->view('partials/candidate');
 							echo form_submit('save', 'Vote', 'class="btn btn-primary" disabled="disabled"');
 							echo form_close();
+						} elseif ((!$this->uri->segment(2) || $this->uri->segment(2) === 'index') && $this->uri->segment(1) !== 'election') {
+							$this->load->view($this->uri->segment(1) . '/' . (!$this->uri->segment(2) ? 'index' : $this->uri->segment(2)));
 						} else {
 							$this->load->view('partials/' . $this->uri->segment(2));
 						}

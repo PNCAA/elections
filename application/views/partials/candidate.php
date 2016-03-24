@@ -25,7 +25,7 @@
 	<label class="control-label col-md-2">Your promotion *</label>
 	<div class="col-md-10">
 		<?php
-		echo form_input('promotion', set_value('promotion'), 'class="form-control" placeholder="Between 2007 to 2015"');
+		echo form_input('promotion', set_value('promotion'), 'class="form-control" placeholder="2012"');
 		?>
 	</div>
 </div>

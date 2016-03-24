@@ -1,0 +1,40 @@
+### Begin: Browser caching of ressource files ###
+
+# Enable long browser caching for JavaScript and CSS files.
+
+# This affects Frontend and Backend and increases performance.
+# You can also add other file extensions (like gif, png, jpg), if you want them to be longer cached, too.
+
+<FilesMatch "\.(js|css|jpeg|jpg|png|gif)$">
+	<IfModule mod_expires.c>
+		ExpiresActive on
+		ExpiresDefault "access plus 7 days"
+	</IfModule>
+</FilesMatch>
+
+### End: Browser caching of ressource files ###
+
+### Begin: Settings for mod_rewrite ###
+
+<IfModule mod_rewrite.c>
+
+	# Enable URL rewriting
+	RewriteEngine on
+
+	# Change this path, if your package installation is located in a subdirectory of the website root.
+	RewriteBase /
+
+	# Disable SQL injection
+	RewriteCond %{QUERY_STRING} [^a-z](declare|char|set|cast|convert|delete|drop|exec|insert|meta|script|select|truncate|update)[^a-z] [NC]
+	RewriteRule (.*) - [F]
+
+	# IMPORTANT: This rule has to be the very first RewriteCond in order to work!
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	# Main URL rewriting.
+	RewriteCond $1 !^(index\.php|resources|robots\.txt)
+	RewriteRule ^(.*)$ index.php/$1 [l,QSA]
+</IfModule>
+
+### End: Settings for mod_rewrite ###
