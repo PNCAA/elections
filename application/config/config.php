@@ -114,7 +114,7 @@ $config['enable_hooks'] = FALSE;
 | https://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'PNCAA_';
 
 /*
 |--------------------------------------------------------------------------
@@ -168,9 +168,6 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | By default CodeIgniter uses search-engine friendly segment based URLs:
 | example.com/who/what/where/
 |
-| By default CodeIgniter enables access to the $_GET array.  If for some
-| reason you would like to disable it, set 'allow_get_array' to FALSE.
-|
 | You can optionally enable standard query string based URLs:
 | example.com?who=me&what=something&where=here
 |
@@ -185,11 +182,24 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
-$config['allow_get_array'] = TRUE;
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
 $config['function_trigger'] = 'm';
 $config['directory_trigger'] = 'd';
+
+/*
+|--------------------------------------------------------------------------
+| Allow $_GET array
+|--------------------------------------------------------------------------
+|
+| By default CodeIgniter enables access to the $_GET array.  If for some
+| reason you would like to disable it, set 'allow_get_array' to FALSE.
+|
+| WARNING: This feature is DEPRECATED and currently available only
+|          for backwards compatibility purposes!
+|
+*/
+$config['allow_get_array'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -314,7 +324,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'c28aeaa2f84ed93c9b42e3b15e61fe9b5e63b3c33eddb5745b3a9ee1e6182c1ec068a80212848ca07f33f6c38a46eff8';
+$config['encryption_key'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -404,8 +414,8 @@ $config['cookie_httponly'] 	= FALSE;
 | Determines whether to standardize newline characters in input data,
 | meaning to replace \r\n, \r, \n occurrences with the PHP_EOL value.
 |
-| This is particularly useful for portability between UNIX-based OSes,
-| (usually \n) and Windows (\r\n).
+| WARNING: This feature is DEPRECATED and currently available only
+|          for backwards compatibility purposes!
 |
 */
 $config['standardize_newlines'] = FALSE;
@@ -439,8 +449,8 @@ $config['global_xss_filtering'] = TRUE;
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'csrf_token';
-$config['csrf_cookie_name'] = 'csrf_cookie_token';
+$config['csrf_token_name'] = 'pncaa_csrf_token';
+$config['csrf_cookie_name'] = 'pncaa_csrf_cookie_token';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();

@@ -1,14 +1,5 @@
-# CodeIgniter
-#--------------
-*/config/development
-*/logs/log-*.php
-!*/logs/index.html
-*/cache/*
-!*/cache/index.html
-!*/cache/.htaccess
-
-# System files
-# ---------------
+# INGORE LIST
+#------------
 *.gem
 *~
 .buildpath
@@ -23,3 +14,15 @@ nbproject/
 node_modules
 pkg/*
 cgi-bin/
+*/config/development
+*/config/production
+*/logs/log-*.php
+*/cache/*
+/resources/public/*
+
+# TAKEN LIST
+#------------
+!*/logs/index.html
+!*/cache/index.html
+!*/cache/.htaccess
+!/resources/public/img

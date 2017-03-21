@@ -11,27 +11,24 @@ module.exports = function (grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		dirs: {
-			private: 'resources/private',
-			public: 'resources/public',
+			src: 'resources/private',
+			dest: 'resources/public',
 			bower: 'bower_components',
 			sass: {
-				src: '<%= dirs.private %>/sass'
+				src: '<%= dirs.src %>/sass'
 			},
 			css: {
-				dest: '<%= dirs.public %>/css'
+				dest: '<%= dirs.dest %>/css'
 			},
 			js: {
-				src: '<%= dirs.private %>/js',
-				dest: '<%= dirs.public %>/js'
+				src: '<%= dirs.src %>/js',
+				dest: '<%= dirs.dest %>/js'
 			},
 			fonts: {
-				dest: '<%= dirs.public %>/fonts'
+				dest: '<%= dirs.dest %>/fonts'
 			},
 			vendor: {
-				bootstrap: {
-					js: '<%= dirs.bower %>/bootstrap-sass/assets/javascripts',
-					fonts: '<%= dirs.bower %>/bootstrap-sass/assets/fonts/bootstrap'
-				},
+				bootstrap: '<%= dirs.bower %>/bootstrap-sass/assets',
 				jquery: '<%= dirs.bower %>/jquery/dist'
 			}
 		},
@@ -41,12 +38,11 @@ module.exports = function (grunt) {
 					httpPath: '/',
 					sassDir: '<%= dirs.sass.src %>',
 					cssDir: '<%= dirs.css.dest %>',
-					outputStyle: 'compressed',
-					environment: 'production',
+					outputStyle: 'compact',
 					relativeAssets: true,
 					noLineComments: true,
 					importPath: [
-						'<%= dirs.bower %>/bootstrap-sass/assets/stylesheets'
+						'<%= dirs.vendor.bootstrap %>/stylesheets'
 					]
 				}
 			}
@@ -90,7 +86,7 @@ module.exports = function (grunt) {
 					expand: true,
 					flatten: true,
 					src: [
-						'<%= dirs.vendor.bootstrap.fonts %>/*.{eot,svg,ttf,woff,woff2}'
+						'<%= dirs.vendor.bootstrap %>/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}'
 					],
 					dest: '<%= dirs.fonts.dest %>'
 				}]

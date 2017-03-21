@@ -8,7 +8,7 @@
 	"authors": [
 		"Man Math <manmath4@gmail.com>"
 	],
-	"dependencies": {
+	"devDependencies": {
 		"bootstrap-sass": "~3.3"
 	}
 }

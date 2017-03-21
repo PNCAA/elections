@@ -1,0 +1,35 @@
+<?php
+echo form_open('candidate/create', array('class' => 'form-horizontal'));
+?>
+	<div class="form-group">
+		<label for="first_name" class="control-label col-sm-2">First name</label>
+		<div class="col-sm-10">
+			<?php echo form_input('first_name', set_value('first_name'), 'class="form-control input-sm" id="first_name"') . form_error('first_name'); ?>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="last_name" class="control-label col-sm-2">Last name</label>
+		<div class="col-sm-10">
+			<?php echo form_input('last_name', set_value('last_name'), 'class="form-control input-sm" id="last_name"') . form_error('last_name'); ?>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="promotion" class="control-label col-sm-2">Promotion</label>
+		<div class="col-sm-10">
+			<?php echo form_input('promotion', set_value('promotion'), 'class="form-control input-sm" id="promotion"') . form_error('promotion'); ?>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="sex" class="control-label col-sm-2">Gender</label>
+		<div class="col-sm-10">
+			<?php echo form_dropdown('sex', array('m' => 'Male', 'f' => 'Female'), set_select('sex'), 'class="form-control input-sm" id="sex"'); ?>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" name="save" class="btn btn-primary">Save</button>
+		</div>
+	</div>
+<?php
+echo form_close();
+?>

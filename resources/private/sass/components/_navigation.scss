@@ -1,0 +1,11 @@
+.navbar {
+	> .container {
+		.navbar-brand {
+			margin-left: 0;
+		}
+	}
+}
+.navbar-brand {
+	padding: 5px;
+	height: auto;
+}

@@ -84,8 +84,12 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-
-defined('SITE_TITLE')          OR define('SITE_TITLE', 'PN Cambodia Alumni Association');
-defined('CSS_PATH')            OR define('CSS_PATH', 'resources/public/css/');
-defined('JS_PATH')             OR define('JS_PATH', 'resources/public/js/');
-defined('IMG_PATH')            OR define('IMG_PATH', 'resources/public/img/');
+/*
+|--------------------------------------------------------------------------
+| Custom
+|--------------------------------------------------------------------------
+*/
+defined('SITE_TITLE')      OR define('SITE_TITLE', 'PN Cambodia Alumni Association');
+defined('CSS_PATH')        OR define('CSS_PATH', 'resources/public/css/');
+defined('JS_PATH')         OR define('JS_PATH', 'resources/public/js/');
+defined('IMG_PATH')        OR define('IMG_PATH', 'resources/public/img/');

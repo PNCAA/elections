@@ -1,0 +1,44 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php
+		echo link_tag('favicon.ico', 'shortcut icon', '');
+		echo link_tag(CSS_PATH . 'app.min.css');
+	?>
+	<title><?php echo $title . ' - ' . SITE_TITLE; ?></title>
+</head>
+<body>
+	<?php $this->load->view('partials/header.phtml'); ?>
+	<main class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="panel-title"><?php echo $title; ?></h1>
+			</div>
+			<div class="panel-body">
+				<?php
+					$dir = $this->uri->segment(1);
+					$file = $this->uri->segment(2);
+					if (!empty($dir) && !empty($file)) {
+						$this->load->view($dir . '/' . $file . '.phtml');
+					} elseif (!empty($dir) && empty($file)) {
+						$this->load->view($dir . '/index.phtml');
+					} else {
+						$this->load->view('election/index.phtml');
+					}
+				?>
+			</div>
+			<div class="panel-footer">
+				<small>Copy &copy; by PN Cambodia Alumni Association - 2017. All right reserved!</small>
+			</div>
+		</div>
+	</main>
+	<script src="<?php echo site_url(JS_PATH . 'library.min.js'); ?>"></script>
+	<script src="<?php echo site_url(JS_PATH . 'app.min.js'); ?>"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
 	"name": "alumni-election",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Node package for PNCAA Boards Election.",
 	"main": "index.js",
 	"scripts": {
@@ -9,16 +9,16 @@
 	"author": "Man Math <manmath4@gmail.com>",
 	"license": "ISC",
 	"private": true,
-	"dependencies": {
-		"grunt": "0.4.5",
-		"grunt-contrib-clean": "1.0.0",
-		"grunt-contrib-compass": "1.1.1",
-		"grunt-contrib-concat": "1.0.0",
-		"grunt-contrib-copy": "1.0.0",
-		"grunt-contrib-cssmin": "1.0.0",
-		"grunt-contrib-uglify": "1.0.0",
-		"grunt-contrib-watch": "1.0.0",
-		"jit-grunt": "0.10.0",
-		"time-grunt": "1.3.0"
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-contrib-clean": "^1.0.0",
+		"grunt-contrib-compass": "^1.1.1",
+		"grunt-contrib-concat": "^1.0.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-cssmin": "^1.0.0",
+		"grunt-contrib-uglify": "^1.0.0",
+		"grunt-contrib-watch": "^1.0.0",
+		"jit-grunt": "^0.10.0",
+		"time-grunt": "^1.3.0"
 	}
 }
