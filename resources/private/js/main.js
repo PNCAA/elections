@@ -1,43 +1,28 @@
 $(function() {
-	var limit = 5;
+	var limit = 9;
 	$('input[type="checkbox"]').on('change', function() {
 		if($('input[type="checkbox"]:checked').length >= limit) {
 			if($('input[type="checkbox"]:checked').length >= limit + 1) {
 				this.checked = false;
-				alert('You are allowed to select only 5 candidates!');
+				alert('You are allowed to select only ' + limit + ' candidates!');
 			}
-			$('input[type="submit"]').removeAttr('disabled');
+			$('#vote').removeAttr('disabled').removeClass('btn-default').addClass('btn-success');
 		} else {
-			$('input[type="submit"]').attr('disabled', 'disabled');
+			$('#vote').attr('disabled', 'disabled');
+			$('#vote').removeClass('btn-success').addClass('btn-default');
 		}
 	});
 
-	// validate form
-	$('input[type="submit"]').on('click', function() {
-		var fullName = $('input[name="full_name"]').val();
-		var major = $('select[name="major"]').val();
-		var promotion = $('input[name="promotion"]').val();
-		if (fullName === '') {
-			$('input[name="full_name"]').parent().parent().addClass('has-error');
-			$('input[name="full_name"]').focus();
-			return false;
-		} else {
-			$('input[name="full_name"]').parent().parent().removeClass('has-error');
-		}
-		if (major === '') {
-			$('select[name="major"]').parent().parent().addClass('has-error');
-			$('select[name="major"]').focus();
-			return false;
-		} else {
-			$('select[name="major"]').parent().parent().removeClass('has-error');
-		}
-		if (promotion === '') {
-			$('input[name="promotion"]').parent().parent().addClass('has-error');
-			$('input[name="promotion"]').focus();
-			return false;
-		} else {
-			$('input[name="promotion"]').parent().parent().removeClass('has-error');
-		}
+	$('#vote').click(function(e) {
+		var ref = $('form').find("[required]");
+		$(ref).each(function() {
+			if ($(this).val() == '') {
+				alert('All Voter Information fields are required!');
+				$(this).focus();
+				e.preventDefault();
+				return false;
+			}
+		});
 		return true;
 	});
 });

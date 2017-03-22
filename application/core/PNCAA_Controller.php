@@ -19,6 +19,11 @@ class PNCAA_Controller extends CI_Controller {
 	public $input;
 
 	/**
+	 * @var CI_Session
+	 */
+	public $session;
+
+	/**
 	 * @var array
 	 */
 	protected $_data = array();

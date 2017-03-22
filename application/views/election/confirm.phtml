@@ -1,0 +1,37 @@
+<div class="well-sm">
+	<div class="alert alert-success" role="alert">
+		<h4>Thanks you on your participating to vote for qualify candidates to lead PN Cambodia Alumni Association for new mandate.</h4>
+	</div>
+	<h4 class="page-header">You have voted for:</h4>
+	<div class="row">
+		<?php
+		$i = 1;
+		if ($votedCandidates) { foreach($votedCandidates as $candidate) {
+			?>
+			<div class="col-sm-4">
+				<div class="media">
+					<div class="media-left">
+						<?php echo img(array('src' => IMG_PATH . $candidate->avatar, 'alt' => $candidate->first_name . ' ' . $candidate->last_name)); ?>
+					</div>
+					<div class="media-body">
+						<div class="checkbox">
+							<label>
+								<?php
+								echo form_checkbox('candidates[]', $candidate->identifier, TRUE, 'disabled="disabled"')
+									. ($candidate->sex === 'f' ? 'MS. ' : 'MR. ')
+									. '<strong>' . $candidate->first_name . ' ' .$candidate->last_name . '</strong><br>'
+									. $candidate->promotion;
+								?>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php
+			if ($i === 3 || $i === 6 || $i === 9) { echo '</div><hr><div class="row">'; }
+			$i++;
+		}} else {
+			echo '<p class="help-block">No available candidates!</p>';
+		} ?>
+	</div>
+</div>

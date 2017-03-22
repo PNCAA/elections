@@ -1,0 +1,75 @@
+<?php
+echo form_open('election');
+echo form_submit('vote', 'Vote', 'class="btn btn-default btn-overlapping" id="vote" disabled="disabled"');
+?>
+<div class="row">
+	<div class="col-sm-3">
+		<fieldset>
+			<legend>Voter Information</legend>
+			<div class="form-group">
+				<label class="required" for="first_name">First name</label>
+				<?php echo form_input('first_name', set_value('first_name'), 'class="form-control input-sm" id="first_name" required'); ?>
+			</div>
+			<div class="form-group">
+				<label class="required" for="last_name">Last name</label>
+				<?php echo form_input('last_name', set_value('last_name'), 'class="form-control input-sm" id="last_name" required'); ?>
+			</div>
+			<div class="form-group">
+				<label class="required" for="email">Email</label>
+				<?php echo form_input('email', set_value('email'), 'class="form-control input-sm" id="email" placeholder="pncaa.info@gmail.com" required'). form_error('email'); ?>
+			</div>
+			<div class="form-group">
+				<label class="required" for="major">Your major</label>
+				<?php
+				$majors = [
+					'SNA' => 'SNA',
+					'WEP' => 'WEP / DOP',
+					'DMO' => 'DEO / DMO'
+				];
+				echo form_dropdown('major', $majors, set_select('major'), 'class="form-control input-sm" id="major"') . form_error('major');
+				?>
+			</div>
+			<div class="form-group">
+				<label class="required" for="promotion">Promotion</label>
+				<?php echo form_input('promotion', set_value('promotion'), 'class="form-control input-sm" id="promotion" placeholder="2007" required'); ?>
+			</div>
+		</fieldset>
+	</div>
+	<div class="col-sm-9">
+		<fieldset>
+			<legend>Please select 9 candidates who you want them to lead PN Cambodia Alumni Association!</legend>
+			<div class="row">
+				<?php
+				$i = 1;
+				if ($candidates) { foreach($candidates as $candidate) {
+				?>
+					<div class="col-sm-4">
+						<div class="media">
+							<div class="media-left">
+								<?php echo img(array('src' => IMG_PATH . $candidate->avatar, 'alt' => $candidate->first_name . ' ' . $candidate->last_name)); ?>
+							</div>
+							<div class="media-body">
+								<div class="checkbox">
+									<label>
+										<?php
+										echo form_checkbox('candidates[]', $candidate->identifier)
+											 . ($candidate->sex === 'f' ? 'MS. ' : 'MR. ')
+											 . '<strong>' . $candidate->first_name . ' ' .$candidate->last_name . '</strong><br>'
+											 . $candidate->promotion;
+										?>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?php
+					if ($i === 3 || $i === 6 || $i === 9) { echo '</div><hr><div class="row">'; }
+					$i++;
+				}} else {
+					echo '<p class="help-block">No available candidates!</p>';
+				} ?>
+			</div>
+		</fieldset>
+	</div>
+</div>
+<?php echo form_close(); ?>

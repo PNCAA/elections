@@ -1,0 +1,16 @@
+label {
+	&.required {
+		&:after {
+			content: " *";
+			color: $brand-danger;
+			font-size: $font-size-base;
+		}
+	}
+}
+
+.btn-overlapping {
+	position: absolute;
+	top: 2px;
+	right: 15px;
+	z-index: 2017;
+}
