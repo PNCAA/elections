@@ -56,7 +56,7 @@ module.exports = function (grunt) {
 			},
 			jsapp: {
 				src: [
-					'<%= dirs.vendor.bootstrap.js %>/bootstrap.js',
+					'<%= dirs.vendor.bootstrap %>/javascripts/bootstrap.js',
 					'<%= dirs.js.src %>/main.js'
 				],
 				dest: '<%= dirs.js.dest %>/app.js'

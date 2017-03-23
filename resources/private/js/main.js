@@ -1,4 +1,6 @@
 $(function() {
+	$('[data-toggle="tooltip"]').tooltip();
+
 	var limit = 9;
 	$('input[type="checkbox"]').on('change', function() {
 		if($('input[type="checkbox"]:checked').length >= limit) {

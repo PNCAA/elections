@@ -10,3 +10,11 @@ legend {
 .panel {
 	position: relative;
 }
+
+.tooltip {
+	font-size: $font-size-base;
+}
+
+.tooltip-inner {
+	max-width: 500px;
+}

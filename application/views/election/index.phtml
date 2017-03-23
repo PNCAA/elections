@@ -44,7 +44,7 @@ echo form_submit('vote', 'Vote', 'class="btn btn-default btn-overlapping" id="vo
 				if ($candidates) { foreach($candidates as $candidate) {
 				?>
 					<div class="col-sm-4">
-						<div class="media">
+						<div class="media" data-toggle="tooltip" data-placement="top" title="<?php echo $candidate->commitment; ?>">
 							<div class="media-left">
 								<?php echo img(array('src' => IMG_PATH . $candidate->avatar, 'alt' => $candidate->first_name . ' ' . $candidate->last_name)); ?>
 							</div>
