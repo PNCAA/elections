@@ -19,6 +19,7 @@ cgi-bin/
 */logs/log-*.php
 */cache/*
 /resources/public/*
+/vendor/
 
 # TAKEN LIST
 #------------
