@@ -29,6 +29,8 @@ module.exports = function (grunt) {
 			},
 			vendor: {
 				bootstrap: '<%= dirs.bower %>/bootstrap-sass/assets',
+				amcharts: '<%= dirs.bower %>/amcharts3/amcharts',
+				amchartstools: '<%= dirs.bower %>/amcharts3-tools',
 				jquery: '<%= dirs.bower %>/jquery/dist'
 			}
 		},
@@ -90,6 +92,18 @@ module.exports = function (grunt) {
 					],
 					dest: '<%= dirs.fonts.dest %>'
 				}]
+			},
+			amcharts: {
+				expand: true,
+				cwd: '<%= dirs.vendor.amcharts %>/',
+				src: ['**/*.{gif,jpg,png,svg,css,js}'],
+				dest: '<%= dirs.js.dest %>/amcharts'
+			},
+			amchartstools: {
+				expand: true,
+				cwd: '<%= dirs.vendor.amchartstools %>/',
+				src: ['**/*min.js'],
+				dest: '<%= dirs.js.dest %>/amcharts/tools'
 			}
 		},
 		clean: {

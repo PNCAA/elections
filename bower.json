@@ -1,14 +1,16 @@
 {
-	"name": "alumni-election",
-	"version": "1.0.0",
-	"description": "Package manager for PNCAA Boards Election",
-	"main": "?",
-	"license": "Proprietary",
-	"private": true,
-	"authors": [
-		"Man Math <manmath4@gmail.com>"
-	],
-	"devDependencies": {
-		"bootstrap-sass": "~3.3"
-	}
+  "name": "alumni-election",
+  "version": "1.0.0",
+  "description": "Package manager for PNCAA Boards Election",
+  "main": "?",
+  "license": "Proprietary",
+  "private": true,
+  "authors": [
+    "Man Math <manmath4@gmail.com>"
+  ],
+  "devDependencies": {
+    "bootstrap-sass": "~3.3",
+    "amcharts3": "^3.21.0",
+    "amcharts3-tools": "^1.2.0"
+  }
 }

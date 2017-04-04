@@ -22,4 +22,14 @@ class Electionrepository extends PNCAA_Model {
 		}
 		return FALSE;
 	}
+
+	/**
+	 * @param string $candidate
+	 * @return integer
+	 */
+	public function countVotedByCandidate($candidate) {
+		/** @var CI_DB_result $result */
+		$result = $this->db->where('candidate', $candidate)->get($this->_entity);
+		return $result->num_rows();
+	}
 }

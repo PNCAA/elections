@@ -1,0 +1,9 @@
+#resultContainer {
+	height: 450px;
+	width: 100%;
+	.amcharts-chart-div {
+		> a {
+			display: none !important;
+		}
+	}
+}
